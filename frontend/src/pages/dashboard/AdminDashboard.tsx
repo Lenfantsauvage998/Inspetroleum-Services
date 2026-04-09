@@ -38,8 +38,8 @@ const AdminDashboard: React.FC = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-[#F2F2F2] pt-24 md:pt-36 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#F2F2F2] pt-24 md:pt-36 pb-16 overflow-x-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         {/* Header */}
         <div className="mb-8">
           <p className="text-[#8DBF2E] text-sm font-semibold uppercase tracking-widest mb-1">Admin Panel</p>
@@ -47,21 +47,23 @@ const AdminDashboard: React.FC = () => {
         </div>
 
         {/* Tab nav */}
-        <div className="flex gap-1 bg-white rounded-2xl p-1.5 shadow-sm border border-gray-100 mb-8 w-fit">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                activeTab === tab.id
-                  ? 'bg-[#8DBF2E] text-white shadow-sm'
-                  : 'text-gray-500 hover:text-[#333333]'
-              }`}
-            >
-              {tab.icon}
-              {tab.label}
-            </button>
-          ))}
+        <div className="mb-8 -mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto">
+          <div className="flex gap-1 bg-white rounded-2xl p-1.5 shadow-sm border border-gray-100 w-max">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all whitespace-nowrap ${
+                  activeTab === tab.id
+                    ? 'bg-[#8DBF2E] text-white shadow-sm'
+                    : 'text-gray-500 hover:text-[#333333]'
+                }`}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {activeTab === 'overview' && <OverviewTab />}
@@ -878,14 +880,14 @@ const UsersTab: React.FC = () => {
             <p className="text-xs text-gray-400 mt-0.5">Gestiona roles y acceso de los usuarios</p>
           </div>
 
-          <div className="sm:ml-auto flex items-center gap-2">
+          <div className="sm:ml-auto flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             {/* Filter field selector */}
-            <div className="flex rounded-xl border border-gray-200 overflow-hidden text-xs font-semibold">
+            <div className="flex rounded-xl border border-gray-200 overflow-hidden text-xs font-semibold w-full sm:w-auto">
               {(['name', 'email', 'phone'] as const).map((f) => (
                 <button
                   key={f}
                   onClick={() => setFilterField(f)}
-                  className={`px-3 py-2 transition-colors ${
+                  className={`flex-1 sm:flex-none px-3 py-2 transition-colors ${
                     filterField === f
                       ? 'bg-[#8DBF2E] text-white'
                       : 'text-gray-500 hover:bg-gray-50'
@@ -897,14 +899,14 @@ const UsersTab: React.FC = () => {
             </div>
 
             {/* Search input */}
-            <div className="relative">
+            <div className="relative w-full sm:w-auto">
               <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
               <input
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={`Buscar por ${filterLabels[filterField].toLowerCase()}…`}
-                className="pl-8 pr-3 py-2 text-sm rounded-xl border border-gray-200 focus:border-[#8DBF2E] focus:ring-2 focus:ring-[#8DBF2E]/20 outline-none w-52"
+                className="pl-8 pr-3 py-2 text-sm rounded-xl border border-gray-200 focus:border-[#8DBF2E] focus:ring-2 focus:ring-[#8DBF2E]/20 outline-none w-full sm:w-52"
               />
             </div>
           </div>
