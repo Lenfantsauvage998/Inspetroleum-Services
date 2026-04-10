@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { RadioTower, Flame, Forklift, GraduationCap, CheckCircle2, ArrowRight, ChevronRight } from 'lucide-react'
 import type { Category } from '../types'
 
@@ -76,12 +76,21 @@ const tabs: Tab[] = [
 ]
 
 const WhatWeDoPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<Category>('OILFIELD_SERVICES')
+  const [searchParams] = useSearchParams()
+  const tabParam = searchParams.get('tab') as Category | null
+  const validTab = tabParam && tabs.some((t) => t.id === tabParam) ? tabParam : 'OILFIELD_SERVICES'
+  const [activeTab, setActiveTab] = useState<Category>(validTab)
   const current = tabs.find((t) => t.id === activeTab)!
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
   }, [])
+
+  useEffect(() => {
+    if (tabParam && tabs.some((t) => t.id === tabParam)) {
+      setActiveTab(tabParam)
+    }
+  }, [tabParam])
 
   return (
     <div className="min-h-screen bg-[#F2F2F2]">

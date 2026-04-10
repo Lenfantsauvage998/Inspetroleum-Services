@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
               className="relative inline-block"
               style={{ WebkitTextStroke: '2px #8DBF2E', color: 'transparent' }}
             >
-              Nuestra mejores cartas de 
+              Nuestras mejores cartas de 
             </span>{' '}
             <span className="text-[#8DBF2E]">presentación</span>
           </h1>

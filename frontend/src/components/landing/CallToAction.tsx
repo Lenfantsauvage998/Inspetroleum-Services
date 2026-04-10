@@ -33,39 +33,6 @@ const CallToAction: React.FC = () => {
   return (
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-10 bg-[#8DBF2E]" />
-            <span className="text-[#8DBF2E] text-sm font-semibold tracking-widest uppercase">Explora Mas</span>
-          </div>
-          <h2 className="text-4xl font-extrabold text-[#333333]">Nuestras Áreas de Especialidad</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {cards.map((card) => (
-            <a
-              key={card.title}
-              href={card.link}
-              className="group relative rounded-2xl overflow-hidden h-64 block shadow-md hover:shadow-xl transition-all duration-300"
-            >
-              <img
-                src={card.image}
-                alt={card.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-white font-bold text-lg mb-1">{card.title}</h3>
-                <p className="text-gray-300 text-sm mb-3 line-clamp-2">{card.description}</p>
-                <div className="flex items-center gap-1 text-[#8DBF2E] text-sm font-semibold">
-                  {card.cta} <ArrowRight size={13} />
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-
         {/* Big CTA */}
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-[#4F7F1F] to-[#8DBF2E] p-12 text-center">
           <div className="relative z-10">
