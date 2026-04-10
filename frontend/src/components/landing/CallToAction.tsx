@@ -1,33 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Users, Briefcase, Star } from 'lucide-react'
-
-const cards = [
-  {
-    icon: <Briefcase size={24} className="text-[#8DBF2E]" />,
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80',
-    title: 'Sector Petrolero',
-    description: 'Certificación técnica de Drilling y Workover Rigs bajo normas API para garantizar la seguridad y efectividad en campo',
-    link: '#',
-    cta: 'Explore',
-  },
-  {
-    icon: <Star size={24} className="text-[#8DBF2E]" />,
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80',
-    title: 'Soldadura y END',
-    description: 'Evaluación de precisión mediante ultrasonido, partículas magnéticas y tintas penetrantes por inspectores certificados AWS CWI',
-    link: '#',
-    cta: 'Discover',
-  },
-  {
-    icon: <Users size={24} className="text-[#8DBF2E]" />,
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&q=80',
-    title: 'Izaje de Carga',
-    description: 'Inspección técnica de grúas, montacargas y manlifts bajo normatividad ANSI Serie B30 y ASTM para prevenir riesgos operativos',
-    link: '#',
-    cta: 'Read More',
-  },
-]
+import { ArrowRight } from 'lucide-react'
 
 const CallToAction: React.FC = () => {
   return (
