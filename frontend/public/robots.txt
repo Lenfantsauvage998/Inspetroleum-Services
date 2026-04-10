@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /checkout
+Disallow: /auth
+
+Sitemap: https://industrialservicesgf.com/sitemap.xml
